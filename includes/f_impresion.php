@@ -17,6 +17,7 @@ function print_head(){
 	<link rel="stylesheet" type="text/css" href="/taller/assets/css/sweetalert.css">
 	<link rel="stylesheet" type="text/css" href="/taller/assets/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/taller/assets/css/app.css">
+	<link rel="stylesheet" type="text/css" href="/taller/assets/css/print.css">
 
 	<script type="text/javascript" src="/taller/assets/js/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="/taller/assets/js/materialize.min.js"></script>
@@ -33,9 +34,19 @@ function print_head(){
 
 function print_footer(){
 ?>
+<div class="container">
+	<div class="row">
+		<br> <br> <br> <br> <br>
+	</div>
+</div>
 <script>
 	$(document).ready(function(){
 		$(".dropdown-button").dropdown();
+		$('select').material_select();
+		$('#listado').DataTable({
+					"iDisplayLength": 5000,
+					"order": []
+				});
 	});
 </script>
 </body>

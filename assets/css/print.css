@@ -1,0 +1,26 @@
+@media print{
+	nav, .hide-on-print, .filtros, .btn{
+		display: none !important;
+	}
+	.detalle_filtro{
+		display: inline !important;
+	}
+	.dato{
+		border: 1px solid #ddd;
+		padding: 5px;
+	}
+
+	*{
+		box-shadow: none !important;
+	}
+	.container{
+		width: 96% !important;
+		display: block;
+		margin: auto;
+		margin-left: 2%;
+		padding: 0 !important;
+	}
+	table tbody tr td{
+		padding: 2px !important;
+	}
+}

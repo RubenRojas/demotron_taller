@@ -29,6 +29,9 @@ include($baseDir."general.php");
 include($baseDir."notificacion.php");
 
 
+include($baseDir."data/usuario.php");
+include($baseDir."data/objeto.php");
+
 
 /*************************************************/
 //	CONEXION BASE DE DATOS

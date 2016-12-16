@@ -1,0 +1,8 @@
+//querys a ejecutar
+a parte de las tablas con prefijo taller_
+
+ALTER TABLE `maquina`  ADD `modelo_motor` TEXT NOT NULL ,  ADD `observaciones` TEXT NOT NULL ;
+ALTER TABLE `maquina`  ADD `estado` INT NOT NULL ,  ADD `faena` INT NOT NULL ;
+update maquina set estado=1, faena=1
+ALTER TABLE `maquina`  ADD `horometro` INT NOT NULL ,  ADD `kilometraje` INT NOT NULL ;
+ALTER TABLE `maquina`  ADD `chofer` VARCHAR(100) NOT NULL ;

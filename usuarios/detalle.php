@@ -1,4 +1,42 @@
+<?php
+if(is_dir("/var/www/html/taller")){
+	$baseDir = "/var/www/html/taller/includes/";
+}
+else{
+	$baseDir = "c:/wamp/www/taller/includes/";
+}
+include($baseDir."conexion.php");
 
+if(isset($_SESSION['id'])){
+	$objeto = getObjetoByNombre('USUARIOS', $mysqli);
+	$pUser = getPermisosObjeto($_SESSION['id'], $objeto['id'], $mysqli);
+	/* 1: CREATE 2: READ 3: UPDATE 4: DELETE */
+}
+else{
+	header("Location: /taller/index.php");
+}
+
+if(!in_array("2", $pUser)){
+	$_SESSION['error']['mensaje'] = "No estás autorizado a acceder a esta pagina";
+	$_SESSION['error']['location'] = "/taller/index.php";
+	header("location: /taller/error/index.php");
+}
+print_head();
+print_menu();
+extract($_GET);
+
+$user = getUserById($id, $mysqli);
+$perm = getPermisos($user['id'], $mysqli);
+
+$permisos	= getObjeto("permiso", $mysqli);
+$arr_perm	= array();
+while($row = $permisos->fetch_assoc()) {
+        array_push($arr_perm, $row);
+}
+
+$titulo = $user['nombre'];
+
+?>
 <div class="container">
 	<div class="row">
 		<h3 class="center"><?=$titulo?></h3>
@@ -11,7 +49,7 @@
 			<span class="dato"><?=$user['pass']?></span>
 		</div>
 	</div>
-	<hr>
+
 	<h5 class="center" style="margin: 30px 0px;">Permisos</h5>
 	<table class="permisos">
 		<thead>
@@ -53,7 +91,7 @@
 	<div class="row">
 		<div class="col s12" style="margin-top: 30px;">
 			<a href="Javascript:window.history.back();" class="btn red left">Volver</a>
-			<a href="<?=$user['id']?>/editar" class="btn btn_sys right">Editar</a>
+			<a href="editar.php?id=<?=$user['id']?>" class="btn btn_sys right">Editar</a>
 		</div>
 	</div>
 </div>
