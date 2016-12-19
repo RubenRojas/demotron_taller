@@ -20,6 +20,18 @@ print_head();
 		<h5 class="center">
 			<?=$_SESSION['error']['mensaje']?>
 		</h5>
-		<a href="/taller/maquinaria/index.php" class="btn teal" style="display: block; margin: auto; width: 250px; margin-top: 110px; ">Continuar</a>
+		<?php
+		if($_SESSION['id']==''){
+			?>
+			<a href="/taller/index.php" class="btn teal" style="display: block; margin: auto; width: 250px; margin-top: 110px; ">Continuar</a>
+			<?php
+		}
+		else{
+			?>
+			<a href="/taller/maquinaria/index.php" class="btn teal" style="display: block; margin: auto; width: 250px; margin-top: 110px; ">Continuar</a>
+			<?php	
+		}
+		?>
+		
 	</div>
 </div>

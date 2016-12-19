@@ -42,7 +42,7 @@ while($row = $permisos->fetch_assoc()) {
 $titulo = "Nuevo Usuario";
 
 ?>
-<div class="container">
+<div class="container_form">
 	<form action="forms/insert.php" method="post">
 		<div class="row">
 			<h3 class="center"><?=$titulo?></h3>

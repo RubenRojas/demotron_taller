@@ -33,7 +33,7 @@ print_menu();
 
 ?>
 
-<div class="container">
+<div class="container_form">
 	<div class="row">
 		<h3 class="center">Editar Maquina</h3>
 		<form action="forms/update.php" method="post">

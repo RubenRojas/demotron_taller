@@ -30,7 +30,7 @@ $user = getUserById($id, $mysqli);
 
 ?>
 
-<div class="container">	
+<div class="container_form">	
 	<form action="forms/delete.php" method="post">
 		<div class="row">
 			<h3 class="center"><?=$titulo?></h3>

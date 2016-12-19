@@ -43,7 +43,7 @@ while($row = $permisos->fetch_assoc()) {
 }
 ?>
 
-<div class="container">
+<div class="container_form">
 	<form action="forms/edit.php" method="post">
 		<div class="row">
 			<h3 class="center"><?=$titulo?></h3>

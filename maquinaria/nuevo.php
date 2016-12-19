@@ -27,7 +27,7 @@ print_menu();
 
 ?>
 
-<div class="container">
+<div class="container_form">
 	<div class="row">
 		<h3 class="center">Nueva Maquina</h3>
 		<form action="forms/insert.php" method="post">

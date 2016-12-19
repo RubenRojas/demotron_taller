@@ -66,12 +66,13 @@ function print_menu(){
 	<nav>
 		<div class="nav-wrapper indigo">
 		<!--<a href="#" class="brand-logo right">Logo</a>-->
-		<ul id="nav-mobile" class="left hide-on-med-and-down">
+		<ul id="nav-mobile" class="left hide-on-med-and-down" style="width: 100%;">
 			<li><a href="/taller/maquinaria/index.php">Gestion Maquinaria</a></li>
+			<li><a href="/taller/intervencion/index.php">Intervenciones</a></li>
 			<li><a href="/taller/informes/index.php">Informes</a></li>
 			
 			<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Opciones <i class="fa fa-arrow-down" aria-hidden="true"></i></a></li>
-			<li><a href="/taller/login/logout.php">Cerrar Sesion</a></li>
+			<li style="float: right; "><a href="/taller/login/logout.php">Cerrar Sesion</a></li>
 		</ul>
 		</div>
 	</nav>

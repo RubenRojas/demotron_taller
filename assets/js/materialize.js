@@ -610,7 +610,8 @@ if (jQuery) {
 
         // Constrain width
         if (curr_options.constrain_width === true) {
-          activates.css('width', origin.outerWidth());
+          activates.css('width', origin.outerWidth()+60);
+          activates.css('overflow-y', "hidden");
 
         } else {
           activates.css('white-space', 'nowrap');
@@ -682,7 +683,7 @@ if (jQuery) {
         // Position dropdown
         activates.css({
           position: 'absolute',
-          top: origin.position().top + verticalOffset + scrollYOffset,
+          top: origin.position().top + verticalOffset + scrollYOffset + 64,
           left: leftPosition + scrollXOffset
         });
 
