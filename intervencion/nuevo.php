@@ -21,7 +21,7 @@ if(!in_array("1", $pUser)){
 	$_SESSION['error']['location'] = "/taller/maquinaria/index.php";
 	header("location: /taller/error/index.php");
 }
-
+extract($_GET);
 
 
 
@@ -35,10 +35,11 @@ print_menu();
 		<h3 class="center">Nueva Intervención</h3>
 		<form action="forms/insert.php" method="post">
 			<div class="row">
-				<div class="col s1 input-field">
+				<div class="col s2 input-field">
 					<label for="equipo" class="active">Equipo</label>
 					<select name="id_maquina" id="equipo">
-						<?=show_option_campos("maquina", "", array("id", "codigo"), array(), array("order by"=>"codigo asc"), $mysqli)?>
+						<option value=""></option>
+						<?=show_option_campos("maquina", $id_maquina, array("id", "codigo"), array(), array("order by"=>"codigo asc"), $mysqli)?>
 					</select>
 				</div>
 				<div class="col s2 input-field">
@@ -54,9 +55,19 @@ print_menu();
 					<label for="fecha" class="active">Fecha</label>
 					<input type="date" name="fecha" id="fecha" value="<?=$HOY?>">
 				</div>
+				<div class="col s4 input-field">
+					<label for="serie" class="active">Tipo Intervención</label>
+					<select name="tipo_intervencion" id="tipo" id="">
+						<?=show_option("taller_intervencion_tipo", "" , $mysqli)?>
+					</select>
+				</div>
 				<div class="col s2 input-field">
 					<label for="turno">Turno</label>
 					<input type="text" name="turno" id="turno">
+				</div>
+				<div class="col s2 input-field">
+					<label for="tipo_mantencion">Tipo Mantencion</label>
+					<input type="text" name="tipo_mantencion"  id="tipo_mantencion">
 				</div>
 				<div class="col s2 input-field">
 					<label for="hora_inicio" class="active">Hora Inicio</label>
@@ -68,18 +79,13 @@ print_menu();
 				</div>
 				<div class="col s2 input-field">
 					<label for="horas">Horas Totales</label>
-					<input type="text" name="horas_totales" id="horas_totales">
+					<input type="text" name="horas_totales" id="horas_totales" value="0">
 				</div>
 				<div class="col s2 input-field">
 					<label for="valor_horas">Valor Horas</label>
 					<input type="text" name="valor_horas" id="valor_horas" onfocusout="set_value_out(this)" onfocus="set_value(this)" onchange="update_valor();" value="0">
 				</div>
-				<div class="col s2 input-field">
-					<label for="serie" class="active">Tipo Intervención</label>
-					<select name="tipo_intervencion" id="tipo" id="">
-						<?=show_option("taller_intervencion_tipo", "" , $mysqli)?>
-					</select>
-				</div>
+				
 			</div>
 			<div class="row">
 				<div class="col s4" style="margin-right: 0px;padding-bottom: 21px;margin-top: 0;border-right: none;">
@@ -130,10 +136,8 @@ print_menu();
 								<div class="col s12">
 									<p class="center"><b>Trabajos</b></p>
 								</div>
-								<div class="col s2">
-									<p class="center">Tipo</p>
-								</div>
-								<div class="col s8">
+								
+								<div class="col s9">
 									<p class="center">Trabajo Realizado</p>
 								</div>
 								<div class="col s2">
@@ -144,10 +148,8 @@ print_menu();
 							for ($i=1; $i <= 10; $i++) { 
 								?>
 								<div class="row">
-									<div class="col s3">
-										<input type="text" name="trabajo_<?=$i?>_tipo" id="trabajo_<?=$i?>_tipo">
-									</div>
-									<div class="col s7">
+									
+									<div class="col s9">
 										<input type="text" name="trabajo_<?=$i?>_detalle" id="trabajo_<?=$i?>_detalle">
 									</div>
 									<div class="col s2">
@@ -163,21 +165,60 @@ print_menu();
 				</div>
 			</div>
 			
-			<div class="col s2 input-field">
+			<div class="col s3 input-field">
 				<label for="valor_total" class="active" id="valor_total_label">Valor Total Mant.</label>
 				<input type="text" name="valor_total" id="valor_total">
 			</div>			
 			
-			<div class="col s2 input-field">
-				<label for="realizado_por" class="active">Realizado Por</label>
-				<input type="text" name="realizado_por" id="realizado_por">
-			</div>			
+			<div class="col s3 input-field">
+				<label for="serie" class="active">Mecanico 1</label>
+				<select name="mecanico_1" id="tipo" id="">
+					<?=show_option("taller_mecanicos", "" , $mysqli)?>
+				</select>
+			</div>	
+			<div class="col s3 input-field">
+				<label for="serie" class="active">Mecanico 2</label>
+				<select name="mecanico_2" id="tipo" id="">
+					<?=show_option("taller_mecanicos", "" , $mysqli)?>
+				</select>
+			</div>
+			<div class="col s3 input-field">
+				<label for="serie" class="active">Mecanico 3 </label>
+				<select name="mecanico_3" id="tipo" id="">
+					<?=show_option("taller_mecanicos", "" , $mysqli)?>
+				</select>
+			</div>
 
+
+			
 
 			<div class="col s12 input-field">
 				<label for="observaciones" class="active">Observaciones</label>
 				<input type="text" name="observaciones" id="observaciones">
 			</div>
+
+			<div class="col s12" style="MARGIN-TOP: 36px; ">
+
+				<h5 class="center">
+					Datos Proxima Mantencion
+				</h5>
+				<div class="col s4">
+					<label for="">Proximo Kilometro (MANT)</label>
+					<input type="text" name="prox_km">
+				</div>
+				<div class="col s4">
+					<label for="">Proximo Horometro (MANT)</label>
+					<input type="text" name="prox_hr">
+				</div>
+				<div class="col s4">
+					<label for="">Tipo Prox. Mantencion</label>
+					<input type="text" name="tipo_prox_mant"  >
+				</div>
+			</div>
+
+
+
+			
 			<div class="col s12" style="margin-top: 50px">
 				<a href="Javascript:history.back()" class="btn left red">Volver</a>
 				<input type="submit" value="Guardar" class="btn right indigo">

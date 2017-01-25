@@ -22,7 +22,13 @@ $campos = array(
 	"tipo_intervencion"=>$tipo_intervencion, 
 	"valor_total"=>$valor_total, 
 	"observaciones"=>$observaciones, 
-	"realizado_por"=>$realizado_por
+	"mecanico_1"=>$mecanico_1,
+	"mecanico_2"=>$mecanico_2,
+	"mecanico_3"=>$mecanico_3,
+	"prox_km"=>$prox_km,
+	"prox_hr"=>$prox_hr,
+	"tipo_mantencion"=>$tipo_mantencion,
+	"tipo_prox_mant"=>$tipo_prox_mant
 );
 
 $id_intervencion = insert("taller_intervencion", $campos, $mysqli);
@@ -38,6 +44,8 @@ for ($i=1; $i <= 10; $i++) {
 		insert("taller_intervencion_trabajo", $campos, $mysqli);	
 	}
 }
+
+update("maquina",array("horometro"=>$horometro, "kilometraje"=>$kilometraje), array("id"=>$id_maquina), array("limit"=>"1"), $mysqli);
 
 
 for ($i=1; $i <= 100; $i++) { 

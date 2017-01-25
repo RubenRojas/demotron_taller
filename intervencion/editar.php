@@ -64,6 +64,10 @@ print_menu();
 					<input type="text" name="turno" value="<?=$arr['turno']?>" id="turno">
 				</div>
 				<div class="col s2 input-field">
+					<label for="tipo_mantencion">Tipo Mantencion</label>
+					<input type="text" name="tipo_mantencion" value="<?=$arr['tipo_mantencion']?>" id="tipo_mantencion">
+				</div>
+				<div class="col s2 input-field">
 					<label for="hora_inicio" class="active">Hora Inicio</label>
 					<input type="time" name="hora_inicio" value="<?=$arr['hora_inicio']?>" id="hora_inicio">
 				</div>
@@ -79,7 +83,7 @@ print_menu();
 					<label for="valor_horas">Valor Horas</label>
 					<input type="text" name="valor_horas" value="<?=$arr['valor_horas']?>" id="valor_horas" onfocusout="set_value_out(this)" onfocus="set_value(this)" onchange="update_valor();" value="0">
 				</div>
-				<div class="col s2 input-field">
+				<div class="col s4 input-field">
 					<label for="serie" class="active">Tipo Intervención</label>
 					<select name="tipo_intervencion" id="tipo" id="">
 						<?=show_option("taller_intervencion_tipo", $arr['tipo_intervencion'] , $mysqli)?>
@@ -135,10 +139,8 @@ print_menu();
 								<div class="col s12">
 									<p class="center" style="margin-top: -12px; margin-bottom: -11px; "><b>Trabajos</b></p> 
 								</div>
-								<div class="col s3">
-									<p class="center">Tipo</p>
-								</div>
-								<div class="col s7">
+								
+								<div class="col s10">
 									<p class="center">Trabajo Realizado</p>
 								</div>
 								<div class="col s2">
@@ -153,10 +155,8 @@ print_menu();
 								$j++;
 								?>
 								<div class="row">
-									<div class="col s3">
-										<input type="text" name="trabajo_<?=$j?>_tipo" id="trabajo_<?=$j?>_tipo" value="<?=$arr2['tipo_trabajo']?>">
-									</div>
-									<div class="col s7">
+									
+									<div class="col s10">
 										<input type="text" name="trabajo_<?=$j?>_detalle" id="trabajo_<?=$j?>_detalle" value="<?=$arr2['detalle']?>">
 									</div>
 									<div class="col s2">
@@ -169,10 +169,8 @@ print_menu();
 								
 								?>
 								<div class="row">
-									<div class="col s3">
-										<input type="text" name="trabajo_<?=$i?>_tipo" id="trabajo_<?=$i?>_tipo">
-									</div>
-									<div class="col s7">
+									
+									<div class="col s10">
 										<input type="text" name="trabajo_<?=$i?>_detalle" id="trabajo_<?=$i?>_detalle">
 									</div>
 									<div class="col s2">
@@ -188,21 +186,58 @@ print_menu();
 				</div>
 			</div>
 			
-			<div class="col s2 input-field">
+			<div class="col s3 input-field">
 				<label for="valor_total" class="active" id="valor_total_label">Valor Total Mant.</label>
 				<input type="text" name="valor_total" value="<?=$arr['valor_total']?>" id="valor_total">
 			</div>			
 			
-			<div class="col s2 input-field">
-				<label for="realizado_por" class="active">Realizado Por</label>
-				<input type="text" name="realizado_por" value="<?=$arr['realizado_por']?>" id="realizado_por">
-			</div>			
-
-
+			<div class="col s3 input-field">
+				<label for="serie" class="active">Mecanico 1</label>
+				<select name="mecanico_1" id="tipo" id="">
+					<?=show_option("taller_mecanicos", $arr['mecanico_1'] , $mysqli)?>
+				</select>
+			</div>	
+			<div class="col s3 input-field">
+				<label for="serie" class="active">Mecanico 2</label>
+				<select name="mecanico_2" id="tipo" id="">
+					<?=show_option("taller_mecanicos", $arr['mecanico_2'] , $mysqli)?>
+				</select>
+			</div>
+			<div class="col s3 input-field">
+				<label for="serie" class="active">Mecanico 3 </label>
+				<select name="mecanico_3" id="tipo" id="">
+					<?=show_option("taller_mecanicos", $arr['mecanico_3'] , $mysqli)?>
+				</select>
+			</div>		
+			
 			<div class="col s12 input-field">
 				<label for="observaciones" class="active">Observaciones</label>
 				<input type="text" name="observaciones" value="<?=$arr['observaciones']?>" id="observaciones">
 			</div>
+
+			<div class="col s12" style="MARGIN-TOP: 36px; ">
+
+			
+				<h5 class="center">
+					Datos Proxima Mantencion
+				</h5>
+
+				<div class="col s4">
+					<label for="">Proximo Kilometro (MANT)</label>
+					<input type="text" name="prox_km" value="<?=$arr['prox_km']?>">
+				</div>
+				<div class="col s4">
+					<label for="">Proximo Horometro (MANT)</label>
+					<input type="text" name="prox_hr" value="<?=$arr['prox_hr']?>">
+				</div>	
+				<div class="col s4">
+					<label for="">Tipo Prox. Mantencion</label>
+					<input type="text" name="tipo_prox_mant"  value="<?=$arr['tipo_prox_mant']?>">
+				</div>
+
+			</div>
+
+			
 			<div class="col s12" style="margin-top: 50px">
 				<input type="hidden" name="id" value="<?=$id?>">
 				<a href="Javascript:history.back()" class="btn left red">Volver</a>

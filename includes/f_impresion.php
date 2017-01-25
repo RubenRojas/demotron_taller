@@ -24,6 +24,7 @@ function print_head(){
     <script type="text/javascript" src="/taller/assets/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="/taller/assets/js/notif.js"></script>
     <script type="text/javascript" src="/taller/assets/js/wow.min.js"></script>
+    <script type="text/javascript" src="/taller/ajax/ajax.js"></script>
     
 
     <link rel="icon" href="/taller/assets/img/favicon.png" sizes="32x32">
@@ -58,19 +59,26 @@ function print_menu(){
 	?>
 	<ul id="dropdown1" class="dropdown-content">
 		<li><a href="/taller/usuarios/index.php">Usuarios</a></li>
+		<li><a href="/taller/mecanicos/index.php">Mecanicos</a></li>
+		<li><a href="/taller/centro_costo/index.php">Centro Costo</a></li>
 		
 		<li class="divider"></li>
-		<li><a href="#!">Otro</a></li>
 	</ul>	
-
+	
+	<ul id="dropdown1" class="dropdown-content">
+		<li><a href="/taller/usuarios/index.php">Usuarios</a></li>
+		<li><a href="/taller/mecanicos/index.php">Mecanicos</a></li>
+		<li><a href="/taller/centro_costo/index.php">Centro Costo</a></li>
+		<li class="divider"></li>
+	</ul>	
 	<nav>
 		<div class="nav-wrapper indigo">
 		<!--<a href="#" class="brand-logo right">Logo</a>-->
 		<ul id="nav-mobile" class="left hide-on-med-and-down" style="width: 100%;">
 			<li><a href="/taller/maquinaria/index.php">Gestion Maquinaria</a></li>
 			<li><a href="/taller/intervencion/index.php">Intervenciones</a></li>
-			<li><a href="/taller/informes/index.php">Informes</a></li>
-			
+			<li><a href="/taller/maquinaria/actualizar_datos.php">Ingreso KM/HR</a></li>
+			<li><a href="/taller/intervencion/mantenciones.php">Mantenciones</a></li>
 			<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Opciones <i class="fa fa-arrow-down" aria-hidden="true"></i></a></li>
 			<li style="float: right; "><a href="/taller/login/logout.php">Cerrar Sesion</a></li>
 		</ul>

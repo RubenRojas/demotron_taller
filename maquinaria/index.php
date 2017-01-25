@@ -47,6 +47,10 @@ if($estado!=""){
 if($faena!=""){
 	$query.="and maquina.faena='$faena'";
 }
+if($codigo_maquina != ""){
+	$cod = get_campo("taller_tipo_maquina", "nombre", $codigo_maquina, $mysqli);
+	$query.="and maquina.codigo like '$cod%'";	
+}
 
 if($tipo_maquina!=""){
 	$query.="and maquina.equipo='$tipo_maquina'";
@@ -83,6 +87,12 @@ $result = $mysqli->query($query);
 						<?=show_option("tipo_maquina", $tipo_maquina, $mysqli)?>
 					</select>
 					<label for="Equipo">Equipo</label>
+				</div>
+				<div class="col s3 input-field">
+					<select name="codigo_maquina" id="codigo_maquina">
+						<?=show_option("taller_tipo_maquina", $codigo_maquina, $mysqli)?>
+					</select>
+					<label for="codigo_maquina">Tipo Maquina</label>
 				</div>
 				<div class="col s12">
 					<input type="submit" value="Filtrar" class="btn indigo right">

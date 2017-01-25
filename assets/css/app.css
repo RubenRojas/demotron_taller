@@ -2,9 +2,16 @@
 *{
 	font-family: 'Open Sans', sans-serif;
 }
-
+.dropdown-content{
+	margin-top: 64px;
+}
 #listado thead th{
 	text-align: center !important;
+}
+.contenedor_mantencion{
+	width: 94% !important;
+	margin-left: 3% !important;
+	max-width: 2000px !important;
 }
 #loginContainer{
 	background: url(../img/wall.jpg);
@@ -48,7 +55,7 @@ label {
 }
 .trabajos_realizado .row .col{
 	    padding: 0px 2px;
-    margin-left: 0px;
+    margin-left: -3px;
     margin-bottom: -5px;
 }
 
@@ -97,4 +104,20 @@ label {
     min-height: 17px;
     height: 17px;
     line-height: 0.5;
+}
+td.numero{
+	text-align: right !important;
+}
+
+.km_success, .hr_success{
+	    background: rgba(0, 128, 0, 0.33) !important;
+	
+}
+.km_warning, .hr_warning{
+	    background: rgba(255, 215, 0, 0.42) !important;
+}
+.km_danger, .hr_danger{
+	    background: rgba(255, 0, 0, 0.65) !important;
+    color: #fff;
+    font-weight: bold;
 }

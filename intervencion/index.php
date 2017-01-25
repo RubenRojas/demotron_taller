@@ -31,7 +31,6 @@ taller_intervencion.id,
 maquina.codigo as equipo,
 maquina.placa,
 taller_intervencion.fecha,
-taller_intervencion.realizado_por,
 taller_intervencion_tipo.nombre as tipo_mant,
 taller_intervencion.valor_total
 from taller_intervencion
@@ -56,7 +55,7 @@ $result = $mysqli->query($query);
 				<th>Patente</th>
 				<th>Fecha</th>
 				<th>Tipo Mant.</th>
-				<th>Realizada Por</th>
+				
 				<th>Valor</th>
 				<th>Detalle</th>
 				<th>Editar</th>
@@ -70,7 +69,6 @@ $result = $mysqli->query($query);
 						<td class="center"><?=$arr['placa']?></td>
 						<td class="center"><?=$arr['fecha']?></td>
 						<td><?=$arr['tipo_mant']?></td>
-						<td><?=$arr['realizado_por']?></td>
 						<td>$<?=number_format($arr['valor_total'])?></td>
 						<td class="center"><a href="detalle.php?id=<?=$arr['id']?>">Detalle</a></td>
 						<td class="center"><a href="editar.php?id=<?=$arr['id']?>">Editar</a></td>

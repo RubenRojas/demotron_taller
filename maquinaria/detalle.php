@@ -105,6 +105,10 @@ print_menu();
 				
 			</div>
 		</div>
+		<div class="col s12">
+			<a href="editar.php?id=<?=$id?>" class="btn right teal">Editar</a>
+			<a href="/taller/intervencion/nuevo.php?id_maquina=18" class="btn orange right" style="margin-right: 5px;">Agregar Intervencion</a>
+		</div>
 		
 		<div class="row historial">
 			<h5 class="center">Historial de Mantenciones</h5>
@@ -225,9 +229,17 @@ print_menu();
 									<span class="dato">$ <?=number_format($intervencion['valor_total'])?> -</span>
 								</div>			
 								
-								<div class="col s6 m2 input-field">
-									<label class="active" for="realizado_por" class="active">Realizado Por</label>
-									<span class="dato"><?=$intervencion['realizado_por']?></span>
+								<div class="col s3 input-field">
+									<label for="serie" class="active">Mecanico 1</label>
+									<span class="dato"><?=get_campo("taller_mecanicos", "nombre", $intervencion['mecanico_1'], $mysqli)?></span>
+								</div>	
+								<div class="col s3 input-field">
+									<label for="serie" class="active">Mecanico 2</label>
+									<span class="dato"><?=get_campo("taller_mecanicos", "nombre", $intervencion['mecanico_2'], $mysqli)?></span>
+								</div>
+								<div class="col s3 input-field">
+									<label for="serie" class="active">Mecanico 3 </label>
+									<span class="dato"><?=get_campo("taller_mecanicos", "nombre", $intervencion['mecanico_3'], $mysqli)?></span>
 								</div>			
 
 

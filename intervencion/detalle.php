@@ -77,7 +77,7 @@ print_menu();
 					<label class="active" for="valor_horas">Valor Hr</label>
 					<span class="dato">$<?=number_format($arr['valor_horas'])?>.-</span>
 				</div>
-				<div class="col s4 m2 input-field">
+				<div class="col s4 m4 input-field">
 					<label class="active" for="serie" class="active">Tipo Intervención</label>
 					<span class="dato"><?=get_campo("taller_intervencion_tipo", "nombre", $arr['tipo_intervencion'], $mysqli)?></span>
 				</div>
@@ -90,10 +90,8 @@ print_menu();
 								<div class="col s12 hide-on-print">
 									<p class="center" style="margin-top: -12px; margin-bottom: -11px; "><b>Trabajos</b></p>
 								</div>
-								<div class="col s3">
-									<p class="center">Tipo</p>
-								</div>
-								<div class="col s7">
+								
+								<div class="col s10">
 									<p class="center">Trabajo Realizado</p>
 								</div>
 								<div class="col s2">
@@ -108,11 +106,8 @@ print_menu();
 								$j++;
 								?>
 								<div class="row">
-									<div class="col s3">
-										
-										<span class="dato"><?=$arr2['tipo_trabajo']?></span>
-									</div>
-									<div class="col s7">
+									
+									<div class="col s10">
 										
 										<span class="dato"><?=$arr2['detalle']?></span>
 									</div>
@@ -178,11 +173,18 @@ print_menu();
 						<span class="dato">$ <?=number_format($arr['valor_total'])?> -</span>
 					</div>			
 					
-					<div class="col s6 m2 input-field">
-						<label class="active" for="realizado_por" class="active">Realizado Por</label>
-						<span class="dato"><?=$arr['realizado_por']?></span>
-					</div>			
-
+					<div class="col s3 input-field">
+						<label for="serie" class="active">Mecanico 1</label>
+						<span class="dato"><?=get_campo("taller_mecanicos", "nombre", $arr['mecanico_1'], $mysqli)?></span>
+					</div>	
+					<div class="col s3 input-field">
+						<label for="serie" class="active">Mecanico 2</label>
+						<span class="dato"><?=get_campo("taller_mecanicos", "nombre", $arr['mecanico_2'], $mysqli)?></span>
+					</div>
+					<div class="col s3 input-field">
+						<label for="serie" class="active">Mecanico 3 </label>
+						<span class="dato"><?=get_campo("taller_mecanicos", "nombre", $arr['mecanico_3'], $mysqli)?></span>
+					</div>	
 
 					<div class="col s12 input-field">
 						<label class="active" for="observaciones" class="active">Observaciones</label>

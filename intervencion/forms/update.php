@@ -22,7 +22,13 @@ $campos = array(
 	"tipo_intervencion"=>$tipo_intervencion, 
 	"valor_total"=>$valor_total, 
 	"observaciones"=>$observaciones, 
-	"realizado_por"=>$realizado_por
+	"mecanico_1"=>$mecanico_1,
+	"mecanico_2"=>$mecanico_2,
+	"mecanico_3"=>$mecanico_3,
+	"prox_km"=>$prox_km,
+	"prox_hr"=>$prox_hr,
+	"tipo_mantencion"=>$tipo_mantencion,
+	"tipo_prox_mant"=>$tipo_prox_mant
 );
 
 
