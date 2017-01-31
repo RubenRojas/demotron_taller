@@ -16,7 +16,7 @@ else{
 	header("Location: /taller/index.php");
 }
 
-if(!in_array("2", $pUser)){
+if(!in_array("5", $pUser)){
 	$_SESSION['error']['mensaje'] = "No estás autorizado a acceder a esta pagina";
 	$_SESSION['error']['location'] = "/taller/index.php";
 	header("location: /taller/error/index.php");

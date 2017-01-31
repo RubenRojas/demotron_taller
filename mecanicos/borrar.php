@@ -8,7 +8,7 @@ else{
 include($baseDir."conexion.php");
 
 if(isset($_SESSION['id'])){
-	$objeto = getObjetoByNombre('INTERVENCION', $mysqli);
+	$objeto = getObjetoByNombre('OPCIONES', $mysqli);
 	$pUser = getPermisosObjeto($_SESSION['id'], $objeto['id'], $mysqli);
 	/* 1:CREATE,  2:READ,  3:UPDATE,  4:DELETE */
 }

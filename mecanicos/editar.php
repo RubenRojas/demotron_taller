@@ -8,7 +8,7 @@ else{
 include($baseDir."conexion.php");
 
 if(isset($_SESSION['id'])){
-	$objeto = getObjetoByNombre('INTERVENCION', $mysqli);
+	$objeto = getObjetoByNombre('OPCIONES', $mysqli);
 	$pUser = getPermisosObjeto($_SESSION['id'], $objeto['id'], $mysqli);
 	/* 1:CREATE,  2:READ,  3:UPDATE,  4:DELETE */
 }
@@ -16,7 +16,7 @@ else{
 	header("Location: /taller/index.php");
 }
 
-if(!in_array("1", $pUser)){
+if(!in_array("3", $pUser)){
 	$_SESSION['error']['mensaje'] = "No estás autorizado a acceder a esta pagina";
 	$_SESSION['error']['location'] = "/taller/maquinaria/index.php";
 	header("location: /taller/error/index.php");

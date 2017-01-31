@@ -8,7 +8,7 @@ else{
 include($baseDir."conexion.php");
 
 if(isset($_SESSION['id'])){
-	$objeto = getObjetoByNombre('MAQUINARIA', $mysqli);
+	$objeto = getObjetoByNombre('INTERVENCION', $mysqli);
 	$pUser = getPermisosObjeto($_SESSION['id'], $objeto['id'], $mysqli);
 	/* 1:CREATE,  2:READ,  3:UPDATE,  4:DELETE */
 }
@@ -146,6 +146,27 @@ extract($_GET);
 					}
 				}
 
+				$km_pasado = ($arr['km_actual'] - $arr['prox_km']);
+				if($km_pasado < 0 ){
+					$km_pasado = 0;
+				}
+				$hr_pasado = ($arr['hr_actual'] - $arr['prox_hr']);
+				if($hr_pasado < 0 ){
+					$hr_pasado = 0;
+				}
+
+
+
+				$km_restante = ($arr['prox_km'] - $arr['km_actual']);
+				if($km_restante < 0 ){
+					$km_restante = 0;
+				}
+				$hr_restante = ( $arr['prox_hr'] - $arr['hr_actual']);
+				if($hr_restante < 0 ){
+					$hr_restante = 0;
+				}
+
+
 
 			?>
 				<tr class="<?=$class_km?> <?=$class_hr?>" data-hr_porc="<?=$hr_porc_res?>" data-km_porc="<?=$km_porc_res?>">
@@ -161,10 +182,10 @@ extract($_GET);
 					<td><?=$arr['tipo_prox_mant']?></td>
 					<td class="numero"><?=number_format($arr['prox_km'])?></td>
 					<td class="numero"><?=number_format($arr['prox_hr'])?></td>
-					<td class="numero"><?=number_format($km_res)?></td>
-					<td class="numero"><?=number_format($hr_res)?></td>
-					<td class="numero"><?=number_format($km_pas)?></td>
-					<td class="numero"><?=number_format($hr_pas)?></td>
+					<td class="numero"><?=number_format($km_restante)?></td>
+					<td class="numero"><?=number_format($hr_restante)?></td>
+					<td class="numero"><?=number_format($km_pasado)?></td>
+					<td class="numero"><?=number_format($hr_pasado)?></td>
 					<td><?=$arr['faena']?></td>
 					<td><?=$arr['estado_maquina']?></td>
 					<td><?=$arr['chofer']?></td>
